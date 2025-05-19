@@ -7,6 +7,9 @@ run:
 lint:
 	uv run ruff check
 
+ruff-fix:
+	uv run ruff check --fix
+
 build:
 	uv build
 
