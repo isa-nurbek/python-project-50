@@ -20,14 +20,23 @@ def parse_file():
     # Parse arguments
     args = parser.parse_args()
 
-    first_file = json.load(open(args.first_file))
-    second_file = json.load(open(args.second_file))
-
-    return first_file, second_file
+    try:
+        with open(args.first_file) as f1, open(args.second_file) as f2:
+            first_file = json.load(f1)
+            second_file = json.load(f2)
+        return first_file, second_file
+    except FileNotFoundError as e:
+        print(f"Error: Could not find file - {e}")
+        return None, None
+    except json.JSONDecodeError as e:
+        print(f"Error: Invalid JSON format - {e}")
+        return None, None
 
 
 def main():
-    parse_file()
+    first_file, second_file = parse_file()
+    if first_file is not None and second_file is not None:
+        print("Files parsed successfully!")
 
 
 if __name__ == "__main__":

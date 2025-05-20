@@ -9,4 +9,3 @@ env/
 .python-version
 .ruff_cache
 __pycache__/
-*.json
