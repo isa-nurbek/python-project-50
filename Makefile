@@ -2,7 +2,7 @@ install:
 	uv sync
 
 run:
-	uv run gendiff
+	uv run gendiff file1.json file2.json
 
 lint:
 	uv run ruff check
