@@ -2,7 +2,7 @@ install:
 	uv sync
 
 run:
-	uv run gendiff.scripts.gendiff --h
+	uv run gendiff
 
 lint:
 	uv run ruff check
