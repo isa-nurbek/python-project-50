@@ -16,8 +16,8 @@ FILE1_DEEP_JSON, FILE2_DEEP_JSON = (
 )
 
 FILE1_DEEP_YAML, FILE2_DEEP_YAML = (
-    "tests/test_data/file1_deep.yaml",
-    "tests/test_data/file2_deep.yaml",
+    "tests/test_data/file1_deep.yml",
+    "tests/test_data/file2_deep.yml",
 )
 
 
