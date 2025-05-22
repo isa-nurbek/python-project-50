@@ -9,3 +9,6 @@ env/
 .python-version
 .ruff_cache
 __pycache__/
+*.cast
+.vscode
+.pytest_cache
