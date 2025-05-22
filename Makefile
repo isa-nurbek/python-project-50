@@ -2,13 +2,21 @@ install:
 	uv sync
 
 run:
-	uv run gendiff file1.json file2.json
+	uv run gendiff
 
 lint:
 	uv run ruff check
 
 ruff-fix:
 	uv run ruff check --fix
+
+test:
+	uv run pytest
+
+test-coverage:
+	uv run pytest --cov=gendiff --cov-report=xml:coverage.xml
+
+check: test lint
 
 build:
 	uv build
