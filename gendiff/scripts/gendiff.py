@@ -6,7 +6,7 @@ from gendiff.scripts.parsing import parse_files
 
 def make_diff(file1, file2):
     diff = dict()
-    keys = sorted(set(file1) | set(file2))
+    keys = sorted(file1 | file2)
 
     for key in keys:
         if key not in file1:
@@ -32,12 +32,11 @@ def make_diff(file1, file2):
 def generate_diff(file_path1, file_path2, format_name="stylish") -> str:
     file1, file2 = parse_files(file_path1, file_path2)
     diff = make_diff(file1, file2)
-    if format_name == "stylish":
-        result = format_stylish(diff)
-    elif format_name == "plain":
-        result = format_plain(diff)
-    elif format_name == "json":
-        result = format_json(diff)
-    else:
-        raise ValueError(f"Unknown format: {format_name}")
+    match format_name:
+        case "stylish":
+            result = format_stylish(diff)
+        case "plain":
+            result = format_plain(diff)
+        case "json":
+            result = format_json(diff)
     return result
