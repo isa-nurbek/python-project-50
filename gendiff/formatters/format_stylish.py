@@ -29,22 +29,22 @@ def format_stylish(diff: dict) -> str:
                 case "added":
                     result.append(
                         f"{sigh_indent}+ {key}: {format_value(value['value'], depth + 1)}"
-                    )
+                    )  # noqa: E501
                 case "removed":
                     result.append(
                         f"{sigh_indent}- {key}: {format_value(value['value'], depth + 1)}"
-                    )
+                    )  # noqa: E501
                 case "unchanged":
                     result.append(
                         f"{big_indent}{key}: {format_value(value['value'], depth + 1)}"
-                    )
+                    )  # noqa: E501
                 case "changed":
                     result.append(
                         f"{sigh_indent}- {key}: {format_value(value['old_value'], depth + 1)}"
-                    )
+                    )  # noqa: E501
                     result.append(
                         f"{sigh_indent}+ {key}: {format_value(value['new_value'], depth + 1)}"
-                    )
+                    )  # noqa: E501
                 case "nested":
                     children = inner(value["children"], depth + 1)
                     result.append(f"{big_indent}{key}: {children}")
